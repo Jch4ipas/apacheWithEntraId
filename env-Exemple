@@ -1,0 +1,4 @@
+OIDC_CLIENT_ID="Client-id"
+OIDC_CLIENT_SECRET="Client-secret"
+OIDC_PROVIDER_URL="Provider-url"
+OIDC_SECRET="SECRET"
