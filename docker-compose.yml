@@ -1,12 +1,13 @@
 services:
   apache:
-    image: httpdcustom:latest
+    image: phpapachecustom:latest
     container_name: my-apache-app
     ports:
     - '8080:80'
     volumes:
-    - ./website:/usr/local/apache2/htdocs/
-    - ./my-httpd.conf:/usr/local/apache2/conf/httpd.conf
+    - ./website:/var/www/html/
+    - ./oidc.conf:/etc/apache2/conf-available/oidc.conf
+    - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
     environment:
       OIDC_CLIENT_ID: ${OIDC_CLIENT_ID}
       OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET}

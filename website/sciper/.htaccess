@@ -1,0 +1,2 @@
+AuthType openid-connect
+Require claim uniqueid:456224
