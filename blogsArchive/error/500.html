@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>500 — Internal Server Error</title>
+    <style>
+        :root {
+            --epfl-red: #e2001a;
+            --bg: #ffffff;
+            --text: #000000;
+            --muted: #444444;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            max-width: 880px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        header img {
+            width: 184px;
+            height: auto;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 880px;
+            padding: 40px;
+            border-radius: 10px;
+            background: #f5f5f5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 32px;
+            align-items: center;
+            border-top: 10px solid var(--epfl-red);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 0 0 8px;
+            font-weight: 900;
+            color: var(--epfl-red)
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            font-weight: 700;
+            color: #222
+        }
+
+        p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        .actions {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px
+        }
+
+        .btn {
+            appearance: none;
+            border: 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px
+        }
+
+        .btn-primary {
+            background: var(--epfl-red);
+            color: white
+        }
+
+        .btn-ghost {
+            background: white;
+            border: 1px solid #ddd;
+            color: #333
+        }
+
+        .right {
+            text-align: center;
+            padding: 20px
+        }
+
+        .code {
+            font-family: ui-monospace;
+            background: #eee;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        footer {
+            margin-top: 18px;
+            color: #777;
+            font-size: 13px
+        }
+
+        @media(max-width:760px) {
+            .card {
+                grid-template-columns: 1fr;
+                padding: 28px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="./EPFL_Logo_184X53.svg" alt="EPFL Logo">
+    </header>
+
+    <main class="card" role="main" aria-labelledby="title">
+        <section class="left">
+            <h1 id="title">500 — Unauthorized</h1>
+            <h2>Internal Server Error</h2>
+            <p><strong>You are not authorized to access this blog.</strong></p>
+            <p>If you believe this is an error or you need access, please contact <span class="code">1234</span>.</p>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="goHome()">Return to homepage</button>
+                <button class="btn btn-ghost" onclick="reloadPage()">Try again</button>
+            </div>
+        </section>
+
+        <aside class="right" aria-label="Info">
+            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M11 15h2v2h-2z" fill="#ffd6d6" />
+                <path
+                    d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a1.25 1.25 0 110 2.5A1.25 1.25 0 0112 5zM11 9h2v5h-2V9z"
+                    fill="#ff9b9b" />
+            </svg>
+            <h3 style="margin:14px 0 6px">Need help ?</h3>
+            <p style="color:var(--muted)">Contact : <strong>1234</strong></p>
+        </aside>
+    </main>
+
+    <script>
+        function goHome() { window.location.href = '/'; }
+        function reloadPage() { window.location.reload(); }
+    </script>
+</body>
+
+</html>

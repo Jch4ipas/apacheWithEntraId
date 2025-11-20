@@ -1,0 +1,7 @@
+- name: archiveblog
+  hosts: all
+  gather_facts: no
+  roles:
+    - role: roles/blogs
+  tags:
+    - blogs

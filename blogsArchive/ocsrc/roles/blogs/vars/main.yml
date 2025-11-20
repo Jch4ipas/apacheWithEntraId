@@ -1,0 +1,6 @@
+image: quay-its.epfl.ch/svc0176/httpdentraid
+version: 1.0.12
+app: blogarchive
+subdomain: blogs
+secrets: "{{ lookup('pipe', 'keybase fs read /keybase/team/epfl_blogwiki/blog/secrets.yml') | from_yaml }}"
+domain: epfl.ch
