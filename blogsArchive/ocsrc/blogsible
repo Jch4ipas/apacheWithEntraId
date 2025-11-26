@@ -3,8 +3,8 @@
 # This is a wrapper around ansible-playbook.
 
 # Easy to use with ansible (default is --test)
-#   ./sopsible --test
-#   ./sopsible --prod
+#   ./blogsible --test
+#   ./blogsible --prod
 #
 # If you are unfamiliar with Ansible, read up on it at
 # - https://www.ansible.com/overview/how-ansible-works

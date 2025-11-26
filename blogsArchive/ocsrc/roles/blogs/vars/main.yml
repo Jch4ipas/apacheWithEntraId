@@ -1,5 +1,5 @@
-image: quay-its.epfl.ch/svc0176/httpdentraid
-version: 1.0.12
+image: quay-its.epfl.ch/{% if openshift_env == 'test' %}svc0176{% else %}svc0041{% endif %}/blogarchive
+version: 1.2
 app: blogarchive
 subdomain: blogs
 secrets: "{{ lookup('pipe', 'keybase fs read /keybase/team/epfl_blogwiki/blog/secrets.yml') | from_yaml }}"

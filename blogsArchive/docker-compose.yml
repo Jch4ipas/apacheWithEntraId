@@ -1,0 +1,15 @@
+services:
+  apache:
+    image: httpdcustom:latest
+    container_name: my-apache-app
+    ports:
+    - '8080:8080'
+    volumes:
+    - ./website:/usr/local/apache2/htdocs/archive_entraid
+    - ./my-httpd.conf:/usr/local/apache2/conf/httpd.conf
+    environment:
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID}
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET}
+      OIDC_PROVIDER_URL: ${OIDC_PROVIDER_URL}
+      OIDC_SECRET: ${OIDC_SECRET}
+      OIDC_REDIRECT_URI: ${OIDC_REDIRECT_URI}

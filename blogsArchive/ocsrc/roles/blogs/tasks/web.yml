@@ -12,7 +12,7 @@
         ports:
           - name: "{{ app }}-svc-port"
             protocol: TCP
-            port: 80
+            port: 8080
             targetPort: 8080
 
 - name: Create blogarchive Route
@@ -25,7 +25,7 @@
         namespace: "{{ openshift_namespace }}"
         labels:
           app: "{{ app }}"
-          route: public-cf
+          route: "{% if openshift_env == 'test' %}public-cf{% else %}public{% endif %}"
       spec:
         host: "{{ subdomain }}{% if openshift_env == 'test' %}-test{% endif %}.{{ domain }}"
         to:
@@ -73,8 +73,8 @@
                     mountPath: /usr/local/apache2/htdocs/
                 resources:
                   requests:
-                    cpu: 50m
-                    memory: 128Mi
+                    cpu: 200m
+                    memory: 512Mi
                   limits:
                     cpu: 200m
                     memory: 512Mi
@@ -93,4 +93,4 @@
             volumes:
               - name: blogarchive-data
                 persistentVolumeClaim:
-                  claimName: "{{ app }}-nas"
+                  claimName: "{{ app }}-{% if openshift_env == 'test' %}data{% else %}nas{% endif %}"

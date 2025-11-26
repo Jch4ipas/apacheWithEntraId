@@ -3,5 +3,3 @@
   gather_facts: no
   roles:
     - role: roles/blogs
-  tags:
-    - blogs

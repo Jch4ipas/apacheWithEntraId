@@ -5,7 +5,7 @@
       apiVersion: v1
       kind: PersistentVolumeClaim
       metadata:
-        name: "{{ app }}-data"
+        name: "{{ app }}-{% if openshift_env == 'test' %}data{% else %}nas{% endif %}"
         namespace: "{{ openshift_namespace }}"
       spec:
         accessModes:
@@ -13,4 +13,4 @@
         resources:
           requests:
             storage: 1Gi
-        storageClassName: sopec
+        storageClassName: "{% if openshift_env == 'test' %}sopec{% else %}thin-csi{% endif %}"
